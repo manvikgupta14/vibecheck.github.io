@@ -18,3 +18,9 @@ async def read_root(request: Request):
 async def analyze(request: Request, review: str = Form(...)):
     result = analyze_sentiment(review)
     return templates.TemplateResponse("index.html", {"request": request, "result": result, "review": review})
+import os
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=True)
