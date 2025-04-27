@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Sentiment Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Sentiment Analyzer</h1>
+        <form method="post" action="/analyze">
+            <textarea name="review" placeholder="Enter your product review here..." required></textarea>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Result: {{ result }}</h2>
+                <p>Your Review: "{{ review }}"</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
